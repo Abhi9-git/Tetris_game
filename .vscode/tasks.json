@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Tetris",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "main.cpp",
+                "Game.cpp",
+                "Tetromino.cpp",
+                "-o",
+                "TetrisUI",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build the Tetris UI project"
+        },
+        {
+            "label": "Run Tetris",
+            "type": "shell",
+            "command": "${workspaceFolder}/TetrisUI.exe",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "Build Tetris",
+            "problemMatcher": []
+        }
+    ]
+}
